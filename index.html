@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="shortcut.js"></script>
+        <script>
+            // We must wait the target element 'inputBox' to be add to DOM
+            $(function() {
+                // Three keys
+                shortcut.add("Ctrl+Alt+F", function() {
+                    alert('You pressed three keys.');
+                }, {
+                    'type': 'keydown',
+                    'propagate': false,
+                    'target': document
+                });
+
+                shortcut.add("Ctrl+X", function() {
+                    alert('You cut something from textarea.');
+                }, {
+                    'type': 'keydown',
+                    'propagate': false,
+                    'target': document.getElementById('inputBox')
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <textarea id="inputBox">
+        </textarea>
+  </body>
+</html>
